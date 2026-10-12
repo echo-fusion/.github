@@ -86,4 +86,4 @@ PHP 8.1, 8.2 or 8.3.
 
 Created and maintained by [Amir Shadanfar](https://github.com/amir-shadanfar). Issues and pull requests are welcome in the individual repositories.
 
-The first, monolithic version of the project is kept, archived, in [echo-php](https://github.com/echo-fusion/echo-php).
+EchoFusion grew out of an older monolithic application, which is archived and no longer maintained.
