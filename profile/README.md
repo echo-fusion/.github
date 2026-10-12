@@ -2,23 +2,52 @@
 
 **A modular PHP framework, built from small packages that work well alone and even better together.**
 
-Every EchoFusion module is a standalone Composer package built on PSR standards (PSR-7, PSR-11, PSR-15). Use one piece in your own project, or combine them into a full framework. All modules share a single set of interfaces, so they stay interchangeable.
+Every EchoFusion module is a standalone Composer package built on PSR standards (PSR-7, PSR-11, PSR-15). Use one piece in your own project, or combine them into a full framework.
+
+## Design in one minute
+
+* **Modules depend on `contracts`, not on each other.** Shared interfaces live only in [`contracts`](https://github.com/echo-fusion/contracts), so any module can be replaced by another implementation (your own, or a third-party library such as Doctrine) without touching the code that uses it.
+* **Small and readable.** Each package does one job and is small enough to read in an afternoon.
+* **Tested on every supported PHP version.** PHP 8.1, 8.2 and 8.3, against the locked, the lowest and the highest allowed `contracts` version.
 
 ## Packages
+
+### Foundation
 
 | Package | What it does |
 | --- | --- |
 | [`contracts`](https://github.com/echo-fusion/contracts) | Shared interfaces for every module (the glue of the framework) |
-| [`routemanager`](https://github.com/echo-fusion/routemanager) | Lightweight HTTP router with PSR-7/PSR-15 and middleware support |
+| [`codestandard`](https://github.com/echo-fusion/codestandard) | Shared code style rules (PHP CS Fixer) |
+
+### HTTP and application core
+
+| Package | What it does |
+| --- | --- |
+| [`routemanager`](https://github.com/echo-fusion/routemanager) | HTTP router with PSR-7/PSR-15 and middleware support |
 | [`middlewaremanager`](https://github.com/echo-fusion/middlewaremanager) | PSR-15 middleware manager and pipeline |
 | [`servicemanager`](https://github.com/echo-fusion/servicemanager) | PSR-11 service container with lazy loading and service providers |
 | [`eventmanager`](https://github.com/echo-fusion/eventmanager) | Event dispatching with listeners and priorities |
 | [`pluginmanager`](https://github.com/echo-fusion/pluginmanager) | Plugin loading and registration per environment |
-| [`codestandard`](https://github.com/echo-fusion/codestandard) | Shared code style rules (PHP CS Fixer) |
+| [`modulemanager`](https://github.com/echo-fusion/modulemanager) | Module registry: config, providers, routes and templates declared as data |
 
-More modules (configuration, sessions, responses, modules) are on the way, together with the `framework` package and the `echo-fusion` project skeleton.
+### Services
+
+| Package | What it does |
+| --- | --- |
+| [`configmanager`](https://github.com/echo-fusion/configmanager) | Immutable configuration with deep merge and dot-notation access |
+| [`sessionmanager`](https://github.com/echo-fusion/sessionmanager) | Native and in-memory sessions, flash messages, PSR-15 start-session middleware |
+| [`responsemanager`](https://github.com/echo-fusion/responsemanager) | PSR-7 HTML, JSON, XML and redirect responses |
+| [`templatemanager`](https://github.com/echo-fusion/templatemanager) | Own template language, plain PHP templates, optional Twig or any engine through configuration |
+| [`databasemanager`](https://github.com/echo-fusion/databasemanager) | PDO connection, query builder and named connections behind one contract; Doctrine DBAL adapter included |
+| [`authmanager`](https://github.com/echo-fusion/authmanager) | Session and token authentication with pluggable guards and user providers |
+
+### Coming next
+
+The [`framework`](https://github.com/echo-fusion/framework) package (kernel and bootstrap that wires everything together) and the [`echo-fusion`](https://github.com/echo-fusion/echo-fusion) project skeleton.
 
 ## Install
+
+Take only what you need:
 
 ```bash
 composer require echo-fusion/routemanager
