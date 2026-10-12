@@ -41,13 +41,24 @@ Every EchoFusion module is a standalone Composer package built on PSR standards 
 | [`databasemanager`](https://github.com/echo-fusion/databasemanager) | PDO connection, query builder and named connections behind one contract; Doctrine DBAL adapter included |
 | [`authmanager`](https://github.com/echo-fusion/authmanager) | Session and token authentication with pluggable guards and user providers |
 
-### Coming next
+### The framework and the project template
 
-The [`framework`](https://github.com/echo-fusion/framework) package (kernel and bootstrap that wires everything together) and the [`echo-fusion`](https://github.com/echo-fusion/echo-fusion) project skeleton.
+| Package | What it does |
+| --- | --- |
+| [`framework`](https://github.com/echo-fusion/framework) | The kernel: boots configuration, modules, providers, events and plugins, and turns a PSR-7 request into a response |
+| [`echo-fusion`](https://github.com/echo-fusion/echo-fusion) | The project skeleton you start an application from |
 
-## Install
+## Start a project
 
-Take only what you need:
+```bash
+composer create-project echo-fusion/echo-fusion my-app
+cd my-app
+composer serve          # http://localhost:8000
+```
+
+## Use only what you need
+
+Every package works on its own:
 
 ```bash
 composer require echo-fusion/routemanager
@@ -63,3 +74,5 @@ PHP 8.1, 8.2 or 8.3.
 ## Maintainer
 
 Created and maintained by [Amir Shadanfar](https://github.com/amir-shadanfar). Issues and pull requests are welcome in the individual repositories.
+
+The first, monolithic version of the project is kept, archived, in [echo-php](https://github.com/echo-fusion/echo-php).
