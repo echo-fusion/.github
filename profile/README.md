@@ -56,6 +56,17 @@ cd my-app
 composer serve          # http://localhost:8000
 ```
 
+Prefer to start from a finished application (accounts, posts, an admin panel, a JSON API, demo data)?
+
+```bash
+composer create-project echo-fusion/echo-fusion my-blog dev-blog
+```
+
+## Learn
+
+* [Documentation](https://github.com/echo-fusion/framework/tree/main/docs): routing, controllers and the `Request`, templates, database and migrations, authentication, CSRF, the command line, testing, deployment
+* [Tutorial: how the example blog works](https://github.com/echo-fusion/framework/blob/main/docs/tutorial-blog.md)
+
 ## Use only what you need
 
 Every package works on its own:
